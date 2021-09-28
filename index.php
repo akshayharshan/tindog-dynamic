@@ -118,9 +118,24 @@
   <section class="colored-section" id="cta">
 
     <div class="container-fluid">
+    <?php
+        if(have_rows('bottom_section')):
+          while(have_rows('bottom_section')):the_row();
+     
+          $link = get_sub_field('bottom_text');
+          $download = get_sub_field('bottom_button');
+          $download_title = $download['title'];
+          
+          
+       
+          endwhile;
 
-      <h3 class="big-heading">Find the True Love of Your Dog's Life Today.</h3>
-      <button class="download-button btn btn-lg btn-dark" type="button"><i class="fab fa-apple"></i> Download</button>
+
+      endif;
+    ?>
+
+      <h3 class="big-heading"><?php echo esc_attr ($link) ?></h3>
+      <button class="download-button btn btn-lg btn-dark" type="button"><i class="fab fa-apple"></i> <?php echo ( $download_title ); ?></button>
       <button class="download-button btn btn-lg btn-light" type="button"><i class="fab fa-google-play"></i> Download</button>
     </div>
   </section>
