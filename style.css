@@ -137,8 +137,14 @@ body {
     border-radius: 100%;
     margin: 20px;
   }
+
   
-  
+.flexible-text{
+
+  color: antiquewhite;
+  text-align: left;
+  margin: 25px 50px 75px 100px;
+}
   #press {
     background-color: #ef8172;
     padding-bottom: 3%;
@@ -154,7 +160,9 @@ body {
   #pricing {
     padding: 100px;
   }
-  
+  .flex-img{
+    margin-top: 20%;
+  }
   .price-text {
     font-size: 3rem;
     line-height: 1.5;

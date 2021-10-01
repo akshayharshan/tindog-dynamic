@@ -27,49 +27,36 @@
 
   <!-- Testimonials -->
 <section class="colored-section" id="testimonials">
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <?php if(have_rows('content')):?> 
+      <?php while(have_rows('content')):the_row() ?>
 
-  <div class="carousel-inner">
-  <?php 
-       
-       if(have_rows('page_slider')):
-         while(have_rows('page_slider')):the_row();
+        <?php if(get_row_layout() == 'text_area_with_image'):?> 
+          
+          <?php get_template_part('parts/section','textarea_with_image') ?>
+          
+        <?php endif; ?>
+        <?php if(get_row_layout() == 'image_slider'):
+        ?>
 
-         ?>
 
-         <div class="carousel-item container-fluid <?php if(get_row_index() == 1 ) echo 'active';?>">
-         <h2 class="testimonial-text"><?php the_sub_field('slider_title') ?></h2>
-         <img class="testimonial-image" src="<?php echo get_sub_field('slider_image')['url']; ?>" alt="First slide">
-         <?php the_sub_field('slider_name') ?>
-       </div>
-       
-       <?php
-          endwhile;
-        endif;
-       ?>
+          <?php get_template_part('parts/section','carousel') ?>
+            
 
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-
+        <?php endif; ?>
+      <?php endwhile; ?>
+    <?php endif; ?>
 </section>
 
 
   <!-- Press -->
 
-  <section class="colored-section" id="press">
+  <!-- <section class="colored-section" id="press">
     <img class="press-logo" src="images/techcrunch.png" alt="tc-logo">
     <img class="press-logo" src="images/tnw.png" alt="tnw-logo">
     <img class="press-logo" src="images/bizinsider.png" alt="biz-insider-logo">
     <img class="press-logo" src="images/mashable.png" alt="mashable-logo">
 
-  </section>
+  </section> -->
 
 
   <!-- Pricing -->
